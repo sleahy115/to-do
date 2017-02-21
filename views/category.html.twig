@@ -11,10 +11,11 @@
             <p>Here are the tasks:</p>
             <ul>
                 {% for task in tasks %}
-                    <li>{{ task.getDescription }}{{due_date}}</li>
+                    <li>{{ task.getDescription }} {{task.getDueDate}}</li>
                 {% endfor %}
             </ul>
         {% endif %}
+
 
         <h4>Add a task</h4>
 
