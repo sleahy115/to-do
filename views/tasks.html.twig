@@ -16,7 +16,7 @@
         <button type="submit">Add category</button>
     </form>
 
-    
+
 
 
     {% if categories is not empty %}
@@ -29,6 +29,10 @@
    {% else %}
      <p>There are no categories yet!</p>
    {% endif %}
+
+   <form method='post' action='delete_tasks'>
+       <button type='submit'>Delete Everything!?</button>
+    </form>
 
   </body>
 </html>

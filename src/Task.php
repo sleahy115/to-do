@@ -4,12 +4,14 @@
         private $description;
         private $id;
         private $category_id;
+        private $due_date;
 
-        function __construct($description, $id = null, $category_id)
+        function __construct($description, $id = null, $category_id, $due_date)
         {
             $this->description = $description;
             $this->id = $id;
             $this->category_id = $category_id;
+            $this->due_date = $due_date;
         }
 
         function setDescription($new_description)
@@ -27,9 +29,19 @@
             return $this->category_id;
         }
 
+        function setDueDate($new_due_date)
+        {
+            $this->due_date = $new_due_date;
+        }
+
+        function getDueDate()
+        {
+            return $this->due_date;
+        }
+
         function save()
         {
-            $GLOBALS['DB']->exec("INSERT INTO tasks (description, category_id) VALUES ('{$this->getDescription()}', {$this->getCategoryId()})");
+            $GLOBALS['DB']->exec("INSERT INTO tasks (description, category_id, due_date) VALUES ('{$this->getDescription()}', {$this->getCategoryId()}, '{$this->getDueDate()}') ");
             $this->id = $GLOBALS['DB']->lastInsertId();
             // may need to add ; outside of closing curly bracket after "get Category"
         }
