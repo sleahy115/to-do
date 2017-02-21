@@ -16,14 +16,12 @@
         <button type="submit">Add category</button>
     </form>
 
-
-
-
     {% if categories is not empty %}
        <p>Here are all your categories:</p>
        <ul>
            {% for category in categories %}
                <li><a href="/categories/{{ category.getId }}">{{ category.getName }}</a></li>
+               <p><a href="/categories/ {{ category.getId }}/edit">Edit this category</a></p>
            {% endfor %}
        </ul>
    {% else %}
