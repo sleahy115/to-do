@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>To do list </title>
+  </head>
+  <body>
+    <h1>Tasks</h1>
+
+    <p>Create a new category:</p>
+
+    <form action="/categories" method="post">
+        <label for="name">Category name:</label>
+        <input id="name" name="name" type="text">
+
+        <button type="submit">Add category</button>
+    </form>
+
+    
+
+
+    {% if categories is not empty %}
+       <p>Here are all your categories:</p>
+       <ul>
+           {% for category in categories %}
+               <li><a href="/categories/{{ category.getId }}">{{ category.getName }}</a></li>
+           {% endfor %}
+       </ul>
+   {% else %}
+     <p>There are no categories yet!</p>
+   {% endif %}
+
+  </body>
+</html>
